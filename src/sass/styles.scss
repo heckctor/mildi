@@ -1,0 +1,17 @@
+/*
+Theme Name: Mildi SK
+Theme URI: 
+Author: Héktor Peña
+Author URI: http://hektor.mx/
+Description: MILDI STARTER KIT FRONTEND
+Version: 2.0.0
+License: GNU General Public License
+License URI: https://www.gnu.org/licenses/gpl.html
+Tags: Bulma, Sass, Gulp, Bower, yarn, npm
+*/
+
+
+
+ @import "../../bower_components/bulma/bulma.sass";
+ @import "./components/index";
+ @import "./web-parts/index";

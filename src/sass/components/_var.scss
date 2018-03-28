@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+$global-font:'Poppins', sans-serif;
+
+$assets:'../../assets/';
+
+//Break points
+$low:320px;//low range
+$mobile:768px;//mobile
+$tablet:769px;//tablet
+$desktop:1024px;//desktop
+$widescreen:1216px;//Widescreen
+$fullhd:1408px;//fullhd
+
+$cian:#31E2F0;
+$dark:#323943;
+
+$facebook:#3b5998;
+$twitter:#00aced;
+$youtube:#FF0000;
+
+$info:#4285F4;
+$success:#34A853;
+$warning:#FBBC05;
+$danger:#EA4335;
