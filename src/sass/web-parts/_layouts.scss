@@ -1,0 +1,45 @@
+.minibar{
+    padding: .25rem;
+    .span{
+        margin:0 .5rem;
+        svg{
+            margin:0 .5rem;
+        }
+    }
+    //colors
+    &.is-white{
+        background: white;
+        a{
+            color:$dark;
+            &:hover{
+                color: $primary;
+            }
+        }
+    }
+    &.is-dark{
+        background: $grey-darker;
+        color:white;
+        a{
+            color:white;
+            &:hover{
+                color: $primary;
+            }
+        }
+    }
+    &.is-black{
+        background: $black;
+        color:white;
+        a{
+            color:white;
+            &:hover{
+                color: $primary;
+            }
+        }
+    }
+}
+
+.social-icons{
+    svg{
+        margin:0 .25rem;
+    }
+}
