@@ -54,7 +54,7 @@ gulp.task('sass', function () {
         .pipe(plumber())
         .pipe(sass({ outputStyle: 'compressed' }))
         .pipe(concat('styles.css'))
-        //.pipe(sourcemaps.write('../../../src/sass/'))
+        .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest('./public/assets/css/'))
         .pipe(notify({ message: 'Finished minifying Styles' }));
 });

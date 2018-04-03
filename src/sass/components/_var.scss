@@ -1,24 +1,86 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins');
-$global-font:'Poppins', sans-serif;
+
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700|Poppins:400,500,600,700');
+
+$font-family-global:'Lato', sans-serif;
+$font-family-heading:'Poppins', sans-serif;
+$font-family-subheading:'Poppins', sans-serif;
 
 $assets:'../../assets/';
 
-//Break points
-$low:320px;//low range
-$mobile:768px;//mobile
-$tablet:769px;//tablet
-$desktop:1024px;//desktop
-$widescreen:1216px;//Widescreen
-$fullhd:1408px;//fullhd
+$font-size-global:16;
 
-$cian:#31E2F0;
-$dark:#323943;
+$breakpoints:(
+    //+++++
+    // based on 
+    // https://bulma.io/documentation/overview/responsiveness/
+    //+++++
+    s:320px,
+    m:768px,
+    t:769px,
+    d:1024px,
+    w:1216px,
+    f:1408px
+);
 
-$facebook:#3b5998;
-$twitter:#00aced;
-$youtube:#FF0000;
+$dark:hsl(0,0, 25);
+$light:hsl(0,0, 90);
+
+
+
+$colors:(
+    black: hsl(0,0,0),
+    dark: hsl(0,0, 20),
+    light:hsl(0,0,90),
+    white: hsl(0,0,100),
+    info: #4285F4
+);
+
 
 $info:#4285F4;
 $success:#34A853;
 $warning:#FBBC05;
 $danger:#EA4335;
+
+
+//Social networks colors
+$instagram:
+    // left bottom
+    radial-gradient(circle farthest-corner at 35% 90%, #fec564, transparent 50%),
+    radial-gradient(circle farthest-corner at 0 140%, #fec564, transparent 50%),
+    // left top
+    radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, transparent 50%),
+    radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, transparent 50%),
+    //  right top
+    radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%),
+    radial-gradient(ellipse farthest-corner at 60% -20%, #893dc2, transparent 50%),
+    // right bottom
+    radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent),
+
+    /////// create a base coat to smooth
+    /////// corner gradients
+    linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%);
+;
+$rrss: (
+    facebook: #3b5998,
+    twitter:#00aced,
+    youtube:#FF0000,
+    linkedin:#0077b5,
+    instagram:#bc318f,
+    pinterest:#bd081c,
+    tumblr:#36465d,
+    imgur:#1bb76e,
+    flickr:#ff0084,
+    vimeo:#7fc400,
+    foursquare:#2d5be3,
+    hi5:#fd9827,
+    whatsapp:#209689,
+    snapchat:#fffc00,
+    soundcloud:#ff5500,
+    periscope:#40a4c4,
+    tinder:#fd5068,
+    spotify:#1db954,
+    vk:#4a76a8,
+    github:#24292e,
+    gitlab:#e65328,
+    bitbucket:#0747a6,
+); 

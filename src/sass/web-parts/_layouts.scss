@@ -7,39 +7,20 @@
         }
     }
     //colors
-    &.is-white{
-        background: white;
-        a{
-            color:$dark;
-            &:hover{
-                color: $primary;
-            }
-        }
-    }
-    &.is-dark{
-        background: $grey-darker;
-        color:white;
-        a{
-            color:white;
-            &:hover{
-                color: $primary;
-            }
-        }
-    }
-    &.is-black{
-        background: $black;
-        color:white;
-        a{
-            color:white;
-            &:hover{
-                color: $primary;
+    @each $color, $value in $colors{
+        &.is-#{$color}{
+            background: $value;
+            color: invert($value);
+            a{
+                color: invert($value);
+                &:hover{
+                    color:$primary;
+                }
             }
         }
     }
 }
 
-.social-icons{
-    svg{
-        margin:0 .25rem;
-    }
+.gallery{
+    @include grid('gallery-item', 3)
 }

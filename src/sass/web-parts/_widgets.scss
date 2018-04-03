@@ -1,0 +1,56 @@
+.social-icons{
+    svg{
+        margin:0 .25rem;
+        //Paddings para iconos con font-awesome 5
+    }
+    a{
+        margin: .05rem;
+    }
+    &.is-square{
+        //Estilo cuadrado para el contenedor padre de los iconos
+        a{
+            background: $primary;
+            @extend .is-center-content;
+            display: inline-flex;
+            @include square(28px);
+            color:white;
+            &:hover{
+                background: darken($primary,25);
+                color:white;
+            }
+        }
+    }
+    &.is-rounded{
+        //Estilo circular para el contenedor padre de los iconos
+        a{
+            background: $primary;
+            @extend .is-center-content;
+            display: inline-flex;
+            @include circle(28px);
+            color:white;
+            &:hover{
+                background: darken($primary,25);
+                color:white;
+            }
+        }
+    }
+    //Colores para cada red social, para ver o agregar colores hay que modificar la variable (array) $rrss en el archivo _var.scss dentro de ./src/sass/components
+    @each $network, $color in $rrss{
+    .is-#{$network}{
+        background: $color!important;
+        color:white!important;
+        transform: translateY(0);
+        @include animate;
+        &:hover{
+            background: darken($color, 20%)!important;
+            transform: translateY(-2px);
+            @include animate;
+        }
+        &:focus{
+            background: lighten($color, 20%)!important;
+            transform: translateY(2px);
+            @include animate;
+        }
+    }
+} 
+}

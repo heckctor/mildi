@@ -11,10 +11,10 @@
     box-shadow: $ejeX $ejeY $ejeZ $blur $alfa;
 }
 
-@mixin font($size:14) {
-    $em : $size / 14;
+@mixin font($size:$font-size-global) {
+    $rem : $size / $font-size-global;
     font-size:$size*1px;//Fallback navegadores antiguos
-    font-size: "#{$em}rem";
+    font-size: "#{$rem}rem";
 }
 
 @mixin textShadow($ejeX: 0px,$ejeY: 0px,$blur: 5px, $color: $black, $por:.5) {
@@ -22,23 +22,55 @@
     text-shadow: $ejeX $ejeY $blur rgba($color, $por);
 }
 
-@mixin from($from){
-    @media screen and (min-width:$from){
-        @content;
+@mixin from($breakpoint){
+    @if map-has-key($breakpoints, $breakpoint){
+        @media screen and (min-width:map-get($breakpoints, $breakpoint)){
+         @content;
+        }
+    }@else if type-of($breakpoint) != number{
+        $type:type-of($breakpoint);
+        @error 'Este mixin solo recibe un parametro numerico en px, em ó rem, pero ha recibido el valor "#{$breakpoint}" el cual es del tipo "#{$type}"';
+    }@else if unit($breakpoint) == 'px' or unit($breakpoint) == 'em' or unit($breakpoint) == 'rem'{
+        @media screen and (min-width:$breakpoint){
+         @content;
+        }
+    }@else{
+        @error '#{$breakpoint} : No es un número válido usar unidades como "px", "em" ó "rem"';
     }
+    
 }
 
-@mixin to($to){
-    @media screen and (max-width:$to){
-        @content;
+@mixin to($breakpoint){
+    @if isValidBreakpoint($breakpoint){
+        @media screen and (max-width:map-get($breakpoints, $breakpoint)){
+         @content;
+        }
+    }@else if type-of($breakpoint) != number{
+        $type:type-of($breakpoint);
+        @error 'Este mixin solo recibe un parametro numerico en px, em ó rem, pero ha recibido el valor "#{$breakpoint}" el cual es del tipo "#{$type}"';
+    }@else if unit($breakpoint) == 'px' or unit($breakpoint) == 'em' or unit($breakpoint) == 'rem'{
+        @media screen and (max-width:$breakpoint){
+         @content;
+        }
+    }@else{
+        @error '#{$breakpoint}: No es un número válido usar unidades como "px", "em" ó "rem"';
     }
+    
 }
 
 @mixin fromTo($from,$to){
-    @media screen and (min-width: $from) and (max-width: ($to) - 1px) {
-        @content
+    @if map-has-key($breakpoints, $from) and map-has-key($breakpoints, $to){
+        @media screen and (min-width: $from) and (max-width: $to) {
+         @content;
+        }
     }
 }
+
+// @mixin fromTo($from,$to){
+//     @media screen and (min-width: $from) and (max-width: ($to) - 1px) {
+//         @content
+//     }
+// }
 
 @mixin square($size){
   width: $size;
@@ -73,8 +105,36 @@
 }
 }
 
+
 @mixin gradient($angulo:0deg,$colorA:$none,$colorB:$none,$colorC:$none,$imagen:$none) {
     background: -webkit-linear-gradient($angulo,$colorA,$colorB,$colorC)$imagen;
     background: -moz-linear-gradient($angulo,$colorA,$colorB,$colorC)$imagen;
     background: linear-gradient($angulo,$colorA,$colorB,$colorC)$imagen;
+}
+
+@mixin grid($selector,$num-cols,$gap:1rem){
+    
+    @media screen and(min-width:768px){
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    @if $selector == li {
+        padding: 0;
+        margin:0;
+        list-style: none;
+        li {
+            margin-left : 0;
+            list-style  : none;
+        }
+    }
+    #{$selector},.#{$selector}{
+        width: 100% / $num-cols;
+        padding:$gap;
+        background: tomato;
+        border:solid 1px lime;
+    }
+    img {
+        display : block;
+    }
 }

@@ -1,3 +1,11 @@
+@function isValidBreakpoint($bp){
+  @if map-get($breakpoints,$bp) {
+    @return true;
+  } @else {
+    @return false;
+  }
+}
+
 @function img($img){
     @return url($assets + 'images/' + $img);
 }
